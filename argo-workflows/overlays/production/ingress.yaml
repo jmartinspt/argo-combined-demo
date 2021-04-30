@@ -4,19 +4,20 @@ metadata:
   name: argo-workflows
   namespace: argo
   annotations:
-    kubernetes.io/ingress.class: "nginx"
+    kubernetes.io/ingress.class: "addon-http-application-routing"
     ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-           name: argo-server
-           port:
-             number: 2746
-    host: argo-workflows.6706bfcd704d480d945d.westeurope.aksapp.io
-
+    - http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: argo-server
+                port:
+                  number: 2746
+      host: argo-workflows.6706bfcd704d480d945d.westeurope.aksapp.io
