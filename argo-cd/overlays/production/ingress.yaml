@@ -3,20 +3,20 @@ kind: Ingress
 metadata:
   name: argocd-server
   annotations:
+    kubernetes.io/ingress.class: "addon-http-application-routing"
     ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - http:
-      paths:
-      - path: /
-        pathType: ImplementationSpecific
-        backend:
-          service:
-           name: argocd-server
-           port:
-             number: 80
-    host: argo-cd.argodemo.com
-
+    - http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: argocd-server
+                port:
+                  number: 80
+      host: argo-cd.6706bfcd704d480d945d.westeurope.aksapp.io
