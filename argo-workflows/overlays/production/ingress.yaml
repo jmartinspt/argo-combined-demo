@@ -14,10 +14,10 @@ spec:
     - http:
         paths:
           - path: /
-            pathType: ImplementationSpecific
+            pathType: Prefix
             backend:
               service:
                 name: argo-server
                 port:
                   number: 2746
-      host: argo-workflows.6706bfcd704d480d945d.westeurope.aksapp.io
+      host: argo-workflows.7c17cc826b9f430d96fd.westeurope.aksapp.io

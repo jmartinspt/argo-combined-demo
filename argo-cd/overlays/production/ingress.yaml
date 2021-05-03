@@ -19,4 +19,4 @@ spec:
                 name: argocd-server
                 port:
                   number: 80
-      host: argo-cd.6706bfcd704d480d945d.westeurope.aksapp.io
+      host: argo-cd.7c17cc826b9f430d96fd.westeurope.aksapp.io
