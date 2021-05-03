@@ -9,6 +9,9 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  tls:
+    - hosts:
+        - argo-workflows.7c17cc826b9f430d96fd.westeurope.aksapp.io
   rules:
     - http:
         paths:
